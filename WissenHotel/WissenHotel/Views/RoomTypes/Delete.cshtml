@@ -1,0 +1,57 @@
+﻿@model WissenHotel.Models.RoomType
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Oda Tipi Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomTypeCapasity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomTypeCapasity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DailyCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Explanation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Explanation)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

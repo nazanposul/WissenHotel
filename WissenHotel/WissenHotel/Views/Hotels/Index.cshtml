@@ -1,0 +1,100 @@
+﻿@model IEnumerable<WissenHotel.Models.Hotel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Otel Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Oluştur", "Create")
+</p>
+<table class="table table-striped tab-hover" id="tblRecords">
+    <thead>
+        <tr>
+            <th class="text-nowrap all">
+                Otel
+            </th>
+            <th class="text-nowrap">
+                İl
+            </th>
+            <th class="text-nowrap">
+                İlçe
+            </th>
+
+            <th class="text-nowrap">
+                Adres
+            </th>
+            <th class="text-nowrap">
+                Açıklama
+            </th>
+            <th class="text-nowrap">
+                Kapasite
+            </th>
+            <th class="text-nowrap">
+                Otel Tipi
+            </th>
+            <th class="text-nowrap">
+                Oluş. Tarihi
+            </th>
+            <th class="text-nowrap">
+                Oluşturan
+            </th>
+            <th class="text-nowrap">
+                Günc. Tarihi
+            </th>
+            <th class="text-nowrap">
+                Güncelleyen
+            </th>
+            <th data-orderable="false" class="all">Eylemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Town.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Explanation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Ayrıntılar", "Details", new { id = item.Id }, new { @class = "btn btn-success btn-sm" })
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>
